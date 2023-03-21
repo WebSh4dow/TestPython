@@ -1,0 +1,33 @@
+from unittest.mock import patch
+from unittest import TestCase
+from main import soma
+from main import subtracao
+class CalculatorTests(TestCase):
+
+    # pega os valores dos inputs da soma
+    @patch('builtins.input', lambda _: 0)
+    def test_input_value_number_one_and_number_two_and_sum(self):
+    # Testa o metodo por unidade, teste da função deve retornar parametros para realizar os testes
+        action = soma(2 + 2)
+        expected = 4
+        return self.assertEqual(action, expected)
+    # A classe onde possui as funções não possui parametros, bem como o input onde não possui    
+    @patch('builtins.input', lambda _: 0)
+    def test_input_value_number_one_and_number_two_and_sub(self):
+        action = subtracao()
+        expected = 4 + 4
+        return self.assertEqual(action, expected)
+
+    @patch('builtins.input', lambda _: 1)
+    def test_input_value_number_one_and_number_two_and_div(self):
+        action = subtracao(2 / 2)
+        expected = 1
+        return self.assertEqual(action, expected)
+
+    @patch('builtins.input', lambda _: 0)
+    def test_input_value_number_one_and_number_two_and_mult(self):
+        action = subtracao(2 * 2)
+        expected = 4
+        return self.assertEqual(action, expected)
+
+        
